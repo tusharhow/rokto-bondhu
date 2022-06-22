@@ -79,6 +79,7 @@ class RegistrationScreenView extends StatelessWidget {
                     controller: _passwordController,
                     hintText: 'Enter blood group',
                     labelText: 'Blood Group',
+                    
                   ),
                   const SizedBox(
                     height: kDefaultPadding,

@@ -3,9 +3,6 @@ import 'package:blood_donation/app/widgets/buttons/reusable_primary_button.dart'
 import 'package:blood_donation/app/widgets/navigate.dart';
 import 'package:blood_donation/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-import '../../controllers/auth/auth_controller.dart';
 import '../../widgets/textformfield/reusable_textformfield.dart';
 
 class LoginScreenView extends StatelessWidget {
@@ -13,11 +10,10 @@ class LoginScreenView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _size = MediaQuery.of(context).size;
-    final authController = Get.put(AuthController());
-    final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-    final TextEditingController _emailController = TextEditingController();
-    final TextEditingController _passwordController = TextEditingController();
+    final size = MediaQuery.of(context).size;
+    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -27,7 +23,7 @@ class LoginScreenView extends StatelessWidget {
               child: Center(
                 child: Image.asset(
                   'assets/images/im1.png',
-                  width: _size.width / 1.8,
+                  width: size.width / 1.8,
                 ),
               ),
             ),
@@ -48,7 +44,7 @@ class LoginScreenView extends StatelessWidget {
               child: Column(
                 children: [
                   ReusableTextFormField(
-                    controller: _emailController,
+                    controller: emailController,
                     hintText: 'Enter your email',
                     labelText: 'Email',
                     obscureIcon: false,
@@ -58,7 +54,7 @@ class LoginScreenView extends StatelessWidget {
                     height: kDefaultPadding,
                   ),
                   ReusableTextFormField(
-                    controller: _passwordController,
+                    controller: passwordController,
                     hintText: 'Enter your password',
                     labelText: 'Password',
                     obscureIcon: true,
@@ -75,7 +71,7 @@ class LoginScreenView extends StatelessWidget {
               btnText: 'Login',
               btnTextColor: Colors.white,
               onPressed: () {
-                if (_formKey.currentState!.validate()) {
+                if (formKey.currentState!.validate()) {
                   print('Form is valid');
                 } else {
                   print('error');
